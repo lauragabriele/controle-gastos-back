@@ -17,7 +17,6 @@ const resolvers = {
 
         return savedTransaction;
       } catch (error) {
-        console.error(error);
         throw new Error("Failed to save transaction");
       }
     },
@@ -26,7 +25,6 @@ const resolvers = {
       const id = args.id;
 
       try {
-        // Find the transaction by ID
         const [transaction] = await db("transactions")
           .where({ id })
           .del()
@@ -38,7 +36,6 @@ const resolvers = {
 
         return transaction;
       } catch (error) {
-        console.error(error);
         throw new Error("Failed to delete transaction");
       }
     },
